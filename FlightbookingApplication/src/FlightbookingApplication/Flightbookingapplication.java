@@ -72,7 +72,7 @@ public class Flightbookingapplication {
 				  System.out.println("Enter ClassType:");
 				  String classType=sc.next();
 				  
-				  System.out.println("Showing available seats in a class");
+				  System.out.println("Showing available seats in a "+classType+" class");
 				  List<String>flight2=booking.getAvailableSeats(flightNumber,classType);
 				  if(classType.equalsIgnoreCase("business")) {
 					  for(int i=0;i<flight2.size();i+=7) {
@@ -89,9 +89,9 @@ public class Flightbookingapplication {
 							System.out.println();
 						}					  
 				  }	  				  
-				  System.out.println("Enter SeatNo:");
+				  System.out.println("Enter SeatNo(Format: Number_Capital Letter):");
 				  String seatNo=sc.next();
-				  System.out.println("Enter Meals:");
+				  System.out.println("For Meals enter(yes/no):");
 				  boolean meals=sc.next().equals("yes")?true:false;
 				  System.out.println(booking.bookSeats(name, age, flightNumber, classType, seatNo, meals));	
 				  break;	
