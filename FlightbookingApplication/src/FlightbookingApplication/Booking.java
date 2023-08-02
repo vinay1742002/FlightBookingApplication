@@ -140,12 +140,18 @@ public class Booking {
 	
 	public void flightTicketByBookingId(int bookingId) {
 		Passenger passengerDetails=passenger.get(bookingId);
+		Seat seat=new Seat();
+		String seatClass=passengerDetails.getSeatClass();
+		String[] seatCoordinate=passengerDetails.getSeatNo().split("_");
+                int c=seatCoordinate[1].charAt(0)-'A';
 		System.out.println("Name : "+passengerDetails.getName());
 		System.out.println("Age : "+passengerDetails.getAge());
 		System.out.println("FlightNumber : "+passengerDetails.getFlightNumber());
 		System.out.println("class : "+passengerDetails.getSeatClass());
 		System.out.println("Seat Number : "+passengerDetails.getSeatNo());
-		System.out.println("Amount : "+passengerDetails.getAmount());		
+		System.out.println("Seat Type : "+(seatClass.equalsIgnoreCase("economy") ?seat.economySeatType(c):seat.businessSeatType(c)));
+		System.out.println("Amount : "+passengerDetails.getAmount());	
+		System.out.println();	
 	}
 	
 	public void flightPrimarySummary() {
